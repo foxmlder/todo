@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+<!-- FireBase -->
+<script src="js/firebase.js"></script>
+<!-- AngularFire -->
+<script src="js/angularfire.min.js"></script>
+
+
+
+
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Mon Appli Mémo</h1>
+      </ion-header-bar>
+      <ion-content ng-controller="TodoController">
+        <div class="list">
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="enter todo item" ng-model="todoModel.todo">
+              </label>
+              <button class="button button-small" ng-click="addTodo()">
+                Ajouter
+              </button>
+          </div>
+        </div>
+<!--      <ul class="list">
+          <li class="item" ng-repeat="todo in todos track by $index">
+              {{todo}}
+            </li>
+        </ul>
+        -->
+
+        <ion-list>
+          <ion-item ng-repeat="todo in todos">
+            <h2>{{todo.$value}} / {{ todo.$id}}</h2>
+            <ion-option-button class="button-assertive" ng-click="deleteTodo($index)">
+              Delete
+            </ion-option-button>
+            <ion-option-button class="button-info" ng-click="afficheTodo($index)">
+              Info
+            </ion-option-button>
+          </ion-item>
+
+        </ion-list>
+
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
